@@ -397,6 +397,10 @@ footer .container, .footer-nav {
   top: 20%;
 }
 
+.arrow-better-living {
+  margin-right: calc(8px + 1.5625vw);
+}
+
 #values {
   margin-top: 120px;
   margin-bottom: 145px;
@@ -523,6 +527,7 @@ footer .container, .footer-nav {
   margin-top: 72px;
   margin-bottom: 120px;
   overflow: hidden;
+  position: relative;
 }
 
 #mission img {
@@ -542,7 +547,7 @@ footer .container, .footer-nav {
 
 .arrow-mission {
   position: absolute;
-  top: 60%;
+  top: 25%;
   left: calc(8px + 1.5625vw);
 }
 

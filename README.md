@@ -18,7 +18,7 @@ Scoot multi-page website
 ### Links
 
 - Git URL: https://github.com/thusmiley/scoot.git
-- Live Site URL:
+- Live Site URL: https://thusmiley.github.io/scoot/
 
 ### Built with
 
