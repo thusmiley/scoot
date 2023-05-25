@@ -242,8 +242,8 @@ h1 {
 }
 
 .arrow-telemetry {
-  margin-left: calc(8px + 1.5625vw);
   top: 173px;
+  left: 8%;
 }
 
 .arrow-near-you {
@@ -393,12 +393,13 @@ footer .container, .footer-nav {
 }
 
 .arrow-mobility {
-  margin-left: calc(8px + 1.5625vw);
   top: 20%;
+  left: 8%;
 }
 
 .arrow-better-living {
-  margin-right: calc(8px + 1.5625vw);
+  top: 0;
+  right: 8%;
 }
 
 #values {
