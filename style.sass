@@ -60,7 +60,7 @@ header .container
     justify-content: center
     align-items: center
     position: relative
-    margin: 22px 0px
+    margin: 22px 0
 #header-nav, .menu-close
     display: none
 #header-nav
@@ -69,20 +69,21 @@ header .container
     left: 0
     background-color: #333a44
     height: 100vh
-    width: 70%
+    width: 100%
     position: absolute
     padding-top: 64px
     padding-left: calc(8px + 1.5625vw) 
     flex-direction: column
     align-items: flex-start
     justify-content: flex-start
-#header-nav a 
+.menu-wrap a 
     color: $light-grey
     font-size: 18px
     line-height: 25px
-#header-nav a:not(:last-child)
+    display: block
+.menu-wrap a:not(:last-child)
     margin-bottom: 24px
-#header-nav a:hover 
+.menu-wrap a:hover 
     color: $yellow
 #header-nav button
     position: absolute
@@ -104,8 +105,41 @@ header .container
     height: 100vh
     background-color: rgba(0, 0, 0, 0.75)
     z-index: 1
-#header-nav
-    position: absolute
+@media screen and (min-width: 481px)
+    header
+        height: 96px
+    header .container
+        margin: 22px 0
+    .menu-close, .menu-open
+        display: none
+    #header-nav
+        display: flex
+        flex-direction: row
+        position: relative
+        background-color: transparent
+        left: unset
+        top: unset
+        height: auto
+        padding: 0
+        justify-content: space-between
+        align-items: center
+    #header-nav button
+        position: relative
+        bottom: unset
+        left: unset
+    .menu-wrap,  #header-nav button
+        width: fit-content
+    .menu-wrap a 
+        display: inline
+        color: $dim-grey
+        font-size: 15px
+    .menu-wrap a:not(:last-child)
+        margin-bottom: 0
+        margin-right: 32px
+    .logo-header
+        width: 108px
+        margin-right: 58px
+// HOMEPAGE
 // Hero section 
 #hero
     color: white
@@ -115,6 +149,7 @@ header .container
     background-size: cover
     background-position: top center 
     position: relative
+    overflow: hidden
 #hero .container
     padding-top: 179px
     padding-bottom: 179px
@@ -126,7 +161,32 @@ h1
     position: absolute
     bottom: 34px
     left: -250px
-// Steps section
+.hero-circles
+    display: none
+@media screen and (min-width: 481px)
+    #hero
+        background-image: url('./assets/images/home-hero-tablet.jpg')
+    #hero .container
+        padding-top: 233px
+        padding-bottom: 217px
+    h1
+        font-size: 56px
+        line-height: 56px
+        letter-spacing: -2.5px
+    #hero h1 
+        max-width: 15ch
+        margin: auto
+    #hero p 
+        margin: 24px auto 32px
+        max-width: 62ch
+    .hero-arrow
+        left: -170px
+    .hero-circles
+        display: block
+        position: absolute
+        bottom: 34px
+        right: -30px
+// How-to steps section
 #steps
     padding-top: 120px
     padding-bottom: 120px
@@ -134,6 +194,8 @@ h1
     font-size: 20
     line-height: 28px
     letter-spacing: -0.89px
+    margin-top: 24px
+    margin-bottom: 24px
 .step
     display: flex
     flex-direction: column
@@ -144,9 +206,38 @@ h1
     margin-bottom: 48px
 .step-icon
     width: 56px
-.step h2 
-    margin-top: 24px
-    margin-bottom: 24px
+.steps-line
+    display: none
+@media screen and (min-width: 481px)
+    #steps
+        padding-top: 122px
+        padding-bottom: 145px
+    #steps .container
+        position: relative
+        max-width: 620px
+    .step
+        flex-direction: row
+        text-align: left
+        align-items: flex-start
+    .step:not(:last-child)
+        margin-bottom: 40px
+    .step h2 
+        font-size: 24
+        letter-spacing: -1.07px
+        margin-top: 0
+        margin-bottom: 27px
+    .step-icon
+        width: 96px
+        margin-right: 79px
+    .steps-line
+        display: block
+        background-color: $light-grey
+        width: 15px
+        height: 100%
+        position: absolute
+        top: -122px
+        left: 60px
+        z-index: -1
 // Features section
 .feature-img
     border-radius: 50%
@@ -172,7 +263,6 @@ h1
 .arrow-telemetry, .arrow-near-you, .arrow-payments
     position: absolute
 .arrow-telemetry
-    // margin-left: calc(8px + 1.5625vw)      
     top: 173px
     left: 8%
 .arrow-near-you
@@ -181,12 +271,42 @@ h1
 .arrow-payments
     top: 0
     left: 40%
+@media screen and (min-width: 481px)
+    .feature-img
+        width: 445px
+    .feature
+        background: url('./assets/patterns/circle.svg') no-repeat 
+    #payments, #telemetry
+        background-position:  top 0 right -350px
+    #near-you
+        background-position: top 0 left -350px
+    .feature p
+        margin: 40px auto
+        max-width: 62ch
+    .feature h2, #signup h2  
+        font-size: 48px
+        line-height: 48px
+        letter-spacing: -2.14px
+        max-width: 15ch
+    .feature h2, #signup h2
+        margin-left: auto
+        margin-right: auto
+    .arrow-telemetry
+        top: 307px
+        left: calc(8px + 1.5625vw)      
+    .arrow-near-you
+        top: 0
+        right: unset
+        left: -15%
+    .arrow-payments
+        top: 85px
+        left: 50%
 // Signup section
 #signup
     background: url('./assets/patterns/semi-circles.svg'), $dark-navy
     background-repeat: no-repeat
     background-size: 200%
-    background-position: bottom 0px right -70px
+    background-position: bottom 0 right -70px
     height: 320px
 #signup h2 
     color: white
@@ -196,10 +316,21 @@ h1
     padding-top: 40px
     padding-bottom: 88px
     display: flex
-    justify-content: space-evenly
+    justify-content: center
     align-items: center
+.download a:not(:last-child)
+    margin-right: 13px
 .download img
     height: 40px
+@media screen and (min-width: 481px)
+    #signup
+        background-size: 150%
+        background-position: bottom center
+        height: 300px
+    #signup h2 
+        padding-top: 62px
+    .download
+        padding-bottom: 62px
 //Footer section    
 footer 
     background-color: #333a44
@@ -220,12 +351,30 @@ footer .container, .footer-nav
     margin-bottom: 16px
 .footer-nav a:hover 
     color: $yellow
-.logo-footer
-    width: 107px
 .socials a:not(:last-child)
     margin-right: 24px    
 .socials svg:hover path 
     fill: $light-grey
+@media screen and (min-width: 481px)
+    footer 
+        padding: 35px 0
+    footer .container
+        justify-content: space-between
+    footer .container, .footer-nav
+        justify-content: start
+        flex-direction: row
+    .footer-wrap
+        display: flex 
+        justify-content: space-between
+        width: 100%
+    .footer-nav
+        margin-top: 0
+        margin-bottom: 0
+    .footer-nav a:not(:last-child)
+        margin-bottom: 0
+        margin-right: 32px
+    .logo-footer
+        width: 27%
 // ABOUT PAGE
 #about-hero
     color: white
@@ -244,6 +393,25 @@ footer .container, .footer-nav
     font-size: 18px
     line-height: 24px
     letter-spacing: -0.8px
+.subpage-circles
+    display: none
+@media screen and (min-width: 481px)
+    #about-hero
+        background-image: url('./assets/images/about-hero-tablet.jpg')
+        padding-top: 96px
+        overflow: hidden
+    #about-hero .container
+        height: 296px
+        justify-content: space-between
+    #about-hero h1 
+        margin-left: 70px
+    .faq h4 
+        font-size: 24px
+        line-height: 28px
+        letter-spacing: -1.07px
+    .subpage-circles
+        display: block
+        margin-right: -50px
 // About - Main
 #about-main
     margin-top: 72px
@@ -271,12 +439,11 @@ footer .container, .footer-nav
     margin-bottom: 32px
 .arrow-mobility, .arrow-better-living
     position: absolute
+    z-index: 1
 .arrow-mobility
-    // margin-left: calc(8px + 1.5625vw)      
     top: 20%
     left: 8%
 .arrow-better-living
-    // margin-right: calc(8px + 1.5625vw)
     top: 0
     right: 8%
 #values
@@ -310,6 +477,51 @@ footer .container, .footer-nav
 .value img
     width: 240px
     border-radius: 50%
+.better-living-circle, .mobility-circle
+    display: none
+@media screen and (min-width: 481px)
+    #about-main
+        margin-top: 144px
+    #about-main img
+        width: 445px
+    .about-us h2, #values h2, #faqs h2, #mission h2, #listed h2 
+        font-size: 48px
+        line-height: 48px
+        letter-spacing: -2.14px
+    .about-us .container
+        position: relative
+    .about-us h2
+        margin-bottom: 40px
+        max-width: 16ch
+    .about-us p, #values p, #mission p, #listed p
+        max-width: 60ch
+    .about-us p, .about-us h2, #values p, #mission p, #listed h2, #listed p 
+        margin-left: auto
+        margin-right: auto
+    .arrow-mobility
+        top: 40%
+        left: unset
+        right: -5%     
+    .arrow-better-living
+        right: unset
+        left: -10%
+    .better-living-circle, .mobility-circle
+        display: block
+        position: absolute
+        top: 0
+    .mobility-circle
+        right: -390px
+    .better-living-circle
+        left: -390px
+    #values
+        margin-top: 120px
+        margin-bottom: 120px
+    #values h2 
+        margin-bottom: 105px
+    #values h4 
+        margin-top: 32px
+    .value:not(:last-child)
+        margin-bottom: 56px
 //FAQs
 #faqs
     margin-bottom: 104px
@@ -318,6 +530,9 @@ footer .container, .footer-nav
 #faqs h3
     margin-top: 48px
     margin-bottom: 32px
+    font-size: 24px
+    line-height: 28px
+    letter-spacing: -1.07px
 .faq h4 
     font-size: 18px
     line-height: 24px
@@ -349,6 +564,20 @@ footer .container, .footer-nav
     transition: 0.3s linear
 .expand-icon.flip
     transform: rotate(180deg)
+@media screen and (min-width: 481px)
+    #faqs
+        margin-bottom: 120px
+    #faqs h3
+        margin-top: 64px
+        font-size: 40px
+        line-height: 48px
+        letter-spacing: -1.79px
+    .faq h4 
+        font-size: 24px
+        line-height: 28px
+        letter-spacing: -1.07px
+    .faq-container
+        margin-bottom: 24px
 // CAREER PAGE
 #career-hero
     color: white
@@ -392,6 +621,36 @@ footer .container, .footer-nav
     color: white
 #mission a:hover 
     color: $yellow
+.mission-circle
+    display: none
+@media screen and (min-width: 481px)
+    #career-hero
+        background-image: url('./assets/images/careers-locations-hero-tablet.jpg')
+        padding-top: 96px
+        overflow: hidden
+    #career-hero .container
+        height: 296px
+        justify-content: space-between
+    #career-hero h1 
+        margin-left: 70px
+    #mission
+        margin-top: 144px
+    #mission img
+        width: 451px
+    .arrow-mission
+        top: 40%
+        left: unset
+        right: -15%
+    .mission-circle
+        display: block
+        position: absolute
+        top: 0
+        right: -390px
+    #mission h2 
+        margin-top: 64px
+        margin-bottom: 40px
+    #mission button
+        margin-top: 40px
 //Jobs
 #jobs
     margin-bottom: 120px
@@ -412,6 +671,23 @@ footer .container, .footer-nav
     margin-bottom: 16px
 .job button 
     width: 100%
+@media screen and (min-width: 481px)
+    .job
+        padding: 34px 48px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        text-align: left
+    .job h2 
+        font-size: 24px
+        line-height: 28px
+        letter-spacing: -1.07px
+    .job h3 
+        margin-top: 8px
+        margin-bottom: 0
+        font-family: 'Lexend Deca', sans-serif
+    .job button 
+        max-width: 180px
 // LOCATIONS PAGE
 #locations-hero
     color: white
@@ -451,3 +727,57 @@ footer .container, .footer-nav
 #listed p 
     margin-top: 32px
     margin-bottom: 32px
+@media screen and (min-width: 481px)
+    #locations-hero
+        background-image: url('./assets/images/careers-locations-hero-tablet.jpg')
+        padding-top: 96px
+        overflow: hidden
+    #locations-hero .container
+        height: 296px
+        justify-content: space-between
+    #locations-hero h1 
+        margin-left: 70px
+    #maps
+        margin-top: 144px
+    #maps .container
+        position: relative
+    #maps img
+        margin-bottom: 0
+    .city
+        position: absolute
+        font-size: 13px
+        line-height: 28px
+        letter-spacing: -0.58px
+        background-color: $yellow
+        padding: 2px 30px
+    .city::after
+        content: ""
+        border: 8px solid transparent 
+        position: absolute
+        border-top-color: $yellow
+        border-bottom: 0
+        bottom: -8px
+        left: 50%
+        margin-left: -8px
+    .newyork
+        top: 18%
+        left: 14%
+    .london
+        top: 8%
+        left: 35%
+    .yokohama
+        top: 20%
+        left: 70%
+    .jakarta
+        top: 50%
+        left: 65%
+    #listed
+        margin-bottom: 120px
+    #listed h2 
+        max-width: 12ch
+        font-size: 40px
+        line-height: 40px
+        letter-spacing: -2.14px
+    #listed p 
+        margin-top: 40px
+        margin-bottom: 40px
