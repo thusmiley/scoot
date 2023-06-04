@@ -63,6 +63,13 @@ img {
   margin-right: auto;
 }
 
+@media screen and (min-width: 1201px) {
+  .container {
+    max-width: 1106px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 header {
   position: fixed;
   z-index: 2;
@@ -90,7 +97,7 @@ header .container {
   left: 0;
   background-color: #333a44;
   height: 100vh;
-  width: 100%;
+  width: 70%;
   position: absolute;
   padding-top: 64px;
   padding-left: calc(8px + 1.5625vw);
@@ -163,6 +170,7 @@ header .container {
     padding: 0;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
   #header-nav button {
     position: relative;
@@ -184,7 +192,12 @@ header .container {
   }
   .logo-header {
     width: 108px;
-    margin-right: 58px;
+    margin-right: 100px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  header .container {
+    margin: 22px auto;
   }
 }
 #hero {
@@ -217,7 +230,7 @@ h1 {
   left: -250px;
 }
 
-.hero-circles {
+.hero-circles, .hero-line {
   display: none;
 }
 
@@ -248,8 +261,47 @@ h1 {
   .hero-circles {
     display: block;
     position: absolute;
-    bottom: 34px;
+    bottom: 45px;
     right: -30px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #hero {
+    background-image: url("./assets/images/home-hero-desktop.jpg");
+  }
+  #hero .container {
+    padding-top: 249px;
+    padding-bottom: 152px;
+    position: relative;
+  }
+  #hero h1 {
+    text-align: left;
+    margin-left: 0;
+  }
+  #hero p {
+    max-width: 42ch;
+    margin: 40px 0 40px 90px;
+    text-align: justify;
+  }
+  #hero button {
+    float: left;
+    margin-left: 90px;
+  }
+  .hero-line {
+    display: block;
+    position: absolute;
+    top: 64%;
+    left: -180px;
+  }
+  .hero-arrow {
+    top: 64%;
+    left: 530px;
+  }
+  .hero-circles {
+    bottom: unset;
+    top: 75%;
+    right: unset;
+    left: 1050px;
   }
 }
 #steps {
@@ -258,7 +310,7 @@ h1 {
 }
 
 .step h2 {
-  font-size: 20;
+  font-size: 20px;
   line-height: 28px;
   letter-spacing: -0.89px;
   margin-top: 24px;
@@ -319,8 +371,41 @@ h1 {
     height: 100%;
     position: absolute;
     top: -122px;
-    left: 60px;
+    left: 62px;
     z-index: -1;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #steps .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1106px;
+  }
+  #steps {
+    padding-top: 160px;
+    padding-bottom: 200px;
+  }
+  .step h2 {
+    margin-top: 40px;
+  }
+  .step {
+    flex-direction: column;
+    text-align: left;
+  }
+  .step:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+  .step-icon {
+    width: 96px;
+    margin-right: 0;
+  }
+  .steps-line {
+    width: 974px;
+    height: 15px;
+    top: 45px;
+    left: -225px;
   }
 }
 .feature-img {
@@ -381,10 +466,10 @@ h1 {
     background: url("./assets/patterns/circle.svg") no-repeat;
   }
   #payments, #telemetry {
-    background-position: top 0 right -350px;
+    background-position: top 0 right -300px;
   }
   #near-you {
-    background-position: top 0 left -350px;
+    background-position: top 0 left -300px;
   }
   .feature p {
     margin: 40px auto;
@@ -402,16 +487,59 @@ h1 {
   }
   .arrow-telemetry {
     top: 307px;
-    left: calc(8px + 1.5625vw);
+    left: unset;
+    right: -5%;
   }
   .arrow-near-you {
     top: 0;
     right: unset;
-    left: -15%;
+    left: -10%;
   }
   .arrow-payments {
     top: 85px;
     left: 50%;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #telemetry .container,
+  #payments .container {
+    flex-direction: row-reverse;
+  }
+  #near-you .container {
+    flex-direction: row;
+  }
+  .feature .container {
+    text-align: left;
+    margin-bottom: 160px;
+  }
+  .feature p {
+    margin-top: 24px;
+    max-width: 50ch;
+  }
+  .feature-img {
+    margin-bottom: 0;
+  }
+  #telemetry .feature-img,
+  #payments .feature-img {
+    margin-left: 220px;
+  }
+  #near-you .feature-img {
+    margin-right: 220px;
+  }
+  .arrow-telemetry {
+    top: 307px;
+    left: unset;
+    right: 0;
+  }
+  .arrow-near-you {
+    top: 0;
+    right: unset;
+    left: 0;
+  }
+  .arrow-payments {
+    top: 85px;
+    left: unset;
+    right: -20%;
   }
 }
 #signup {
@@ -455,6 +583,34 @@ h1 {
   }
   .download {
     padding-bottom: 62px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #signup {
+    background-size: 70%;
+    background-position: bottom 0 right -20%;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+  #signup .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #signup h2 {
+    text-align: left;
+    padding-top: 0;
+    margin-left: 0;
+  }
+  .download {
+    padding: 0;
+  }
+  .download img {
+    height: 100%;
+  }
+  .download a:not(:last-child) {
+    margin-right: 18px;
   }
 }
 footer {
@@ -576,6 +732,17 @@ footer .container, .footer-nav {
     margin-right: -50px;
   }
 }
+@media screen and (min-width: 1201px) {
+  #about-hero {
+    background-image: url("./assets/images/about-hero-desktop.jpg");
+  }
+  #about-hero h1 {
+    margin-left: 0;
+  }
+  .subpage-circles {
+    margin-right: -180px;
+  }
+}
 #about-main {
   margin-top: 72px;
   margin-bottom: 120px;
@@ -585,6 +752,7 @@ footer .container, .footer-nav {
 #about-main img {
   border-radius: 50%;
   width: 311px;
+  z-index: -1;
 }
 
 .about-us {
@@ -616,7 +784,7 @@ footer .container, .footer-nav {
 
 .arrow-mobility, .arrow-better-living {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
 }
 
 .arrow-mobility {
@@ -721,10 +889,10 @@ footer .container, .footer-nav {
     top: 0;
   }
   .mobility-circle {
-    right: -390px;
+    right: -300px;
   }
   .better-living-circle {
-    left: -390px;
+    left: -300px;
   }
   #values {
     margin-top: 120px;
@@ -738,6 +906,62 @@ footer .container, .footer-nav {
   }
   .value:not(:last-child) {
     margin-bottom: 56px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #about-main {
+    margin-top: 120px;
+  }
+  .about-us h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+  .about-us p, #values p, #mission p, #listed p {
+    max-width: 100%;
+    text-align: left;
+  }
+  .about-us p, .about-us h2, #values p, #mission p, #listed h2, #listed p {
+    margin-left: 0;
+  }
+  #mobility .container, #urban-living .container {
+    display: flex;
+  }
+  #mobility .container {
+    flex-direction: row-reverse;
+  }
+  #urban-living .container {
+    flex-direction: row;
+  }
+  #mobility .about-us-detail {
+    margin-right: 220px;
+  }
+  #urban-living .about-us-detail {
+    margin-left: 220px;
+  }
+  .mobility-circle {
+    right: -45%;
+  }
+  .better-living-circle {
+    left: -45%;
+  }
+  .arrow-mobility {
+    top: 60%;
+  }
+  #values .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .value:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+  #values h4 {
+    margin-top: 32px;
+  }
+  #values p {
+    text-align: center;
   }
 }
 #faqs {
@@ -781,14 +1005,13 @@ footer .container, .footer-nav {
   max-height: 150px;
   transition: all 0.3s linear;
   will-change: opacity, max-height;
-  margin-top: 24px;
 }
 
 .answer {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: opacity 0.3s linear, max-height 0.3s linear;
+  transition: all 0.3s ease-in;
   will-change: opacity, max-height;
 }
 
@@ -818,6 +1041,26 @@ footer .container, .footer-nav {
   }
   .faq-container {
     margin-bottom: 24px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #faqs h2 {
+    margin-bottom: 64px;
+  }
+  #faqs h3 {
+    width: 35%;
+    margin-top: 0;
+    margin-right: 30px;
+  }
+  .faq {
+    display: flex;
+    align-items: flex-start;
+  }
+  .how-it-works, .safe-driving {
+    width: 65%;
+  }
+  .faq-container {
+    padding: 32px 40px;
   }
 }
 #career-hero {
@@ -914,7 +1157,7 @@ footer .container, .footer-nav {
     display: block;
     position: absolute;
     top: 0;
-    right: -390px;
+    right: -300px;
   }
   #mission h2 {
     margin-top: 64px;
@@ -922,6 +1165,38 @@ footer .container, .footer-nav {
   }
   #mission button {
     margin-top: 40px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #career-hero {
+    background-image: url("./assets/images/careers-locations-hero-desktop.jpg");
+  }
+  #career-hero h1 {
+    margin-left: 0;
+  }
+  #mission {
+    margin-top: 120px;
+  }
+  #mission img {
+    width: 445px;
+  }
+  #mission .container {
+    flex-direction: row-reverse;
+  }
+  .mission-detail {
+    text-align: left;
+    margin-right: 220px;
+  }
+  .arrow-mission {
+    top: 60%;
+    right: -5%;
+  }
+  .mission-circle {
+    right: -45%;
+  }
+  #mission h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
   }
 }
 #jobs {
@@ -995,8 +1270,7 @@ footer .container, .footer-nav {
 }
 
 #maps {
-  margin-top: 72px;
-  margin-bottom: 72px;
+  margin: 72px auto;
   overflow: hidden;
 }
 
@@ -1051,9 +1325,13 @@ footer .container, .footer-nav {
   }
   #maps .container {
     position: relative;
+    width: 689px;
   }
   #maps img {
     margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
   .city {
     position: absolute;
@@ -1075,19 +1353,19 @@ footer .container, .footer-nav {
   }
   .newyork {
     top: 18%;
-    left: 14%;
+    left: 15%;
   }
   .london {
-    top: 8%;
-    left: 35%;
+    top: 5%;
+    left: 37%;
   }
   .yokohama {
     top: 20%;
-    left: 70%;
+    left: 74%;
   }
   .jakarta {
     top: 50%;
-    left: 65%;
+    left: 70%;
   }
   #listed {
     margin-bottom: 120px;
@@ -1101,5 +1379,45 @@ footer .container, .footer-nav {
   #listed p {
     margin-top: 40px;
     margin-bottom: 40px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #locations-hero {
+    background-image: url("./assets/images/careers-locations-hero-desktop.jpg");
+  }
+  #locations-hero h1 {
+    margin-left: 0;
+  }
+  #maps {
+    margin: 120px auto;
+  }
+  #maps .container {
+    width: 1110px;
+  }
+  .newyork {
+    top: 20%;
+    left: 18%;
+  }
+  .london {
+    top: 11%;
+    left: 39%;
+  }
+  .yokohama {
+    top: 26%;
+    left: 79%;
+  }
+  .jakarta {
+    top: 55%;
+    left: 75%;
+  }
+  #listed .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+  #listed p {
+    margin: 0 105px 0 30px;
+    max-width: 45ch;
   }
 }/*# sourceMappingURL=style.css.map */

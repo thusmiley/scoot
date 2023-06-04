@@ -19,19 +19,21 @@ function closeMenu() {
 //FAQ toggle
 const questions = document.querySelectorAll(".question");
 const arrows = document.querySelectorAll(".expand-icon");
+const answers = document.querySelectorAll('.answer')
 
 function toggleFaqs() {
   const itemToggle = this.getAttribute("aria-expanded");
-  
-  for (i = 0; i < questions.length; i++) {
-      questions[i].setAttribute("aria-expanded", "false");
-        arrows[i].classList.remove("flip"); 
 
-    }
-    
-    if (itemToggle == "false") {
-        this.setAttribute("aria-expanded", "true");
-        this.children[1].classList.add('flip') //add flip to the arrow icon class 
+  for (i = 0; i < questions.length; i++) {
+    questions[i].setAttribute("aria-expanded", "false");
+    arrows[i].classList.remove("flip");
+    answers[i].style.marginTop = '0'
+  }
+
+  if (itemToggle == "false") {
+    this.setAttribute("aria-expanded", "true");
+    this.children[1].classList.add("flip"); //add flip to the arrow icon class
+    this.nextSibling.nextElementSibling.style.marginTop = "24px";
   }
 }
 
