@@ -405,7 +405,7 @@ h1 {
     width: 974px;
     height: 15px;
     top: 45px;
-    left: -225px;
+    left: -178px;
   }
 }
 .feature-img {
@@ -466,10 +466,10 @@ h1 {
     background: url("./assets/patterns/circle.svg") no-repeat;
   }
   #payments, #telemetry {
-    background-position: top 0 right -300px;
+    background-position: top 0 right -95%;
   }
   #near-you {
-    background-position: top 0 left -300px;
+    background-position: top 0 left -95%;
   }
   .feature p {
     margin: 40px auto;
@@ -525,6 +525,12 @@ h1 {
   }
   #near-you .feature-img {
     margin-right: 220px;
+  }
+  #payments, #telemetry {
+    background-position: top 0 right -15%;
+  }
+  #near-you {
+    background-position: top 0 left -15%;
   }
   .arrow-telemetry {
     top: 307px;
@@ -1157,7 +1163,7 @@ footer .container, .footer-nav {
     display: block;
     position: absolute;
     top: 0;
-    right: -300px;
+    right: -45%;
   }
   #mission h2 {
     margin-top: 64px;
